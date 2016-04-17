@@ -1,0 +1,9 @@
+%html
+  %head
+    %title Movie Lovers!
+  %body
+    %h1 Search results for "#{params[:movie_title]}"
+    %h2 Which movie was released in #{@year_solve}?
+    -(0..8).each do |i|
+      %a{href: "/check_results/#{@year_solve}/#{@my_movies[i].id}"}
+        %img{src: Imdb::Movie.new(@my_movies[i].id).poster, width: 400, height: 400}
